@@ -5,14 +5,26 @@ import Prelude
 import Data.Either (Either(..))
 import Data.Function.Uncurried (runFn0)
 import Effect (Effect)
-import Effect.Console (logShow)
-import Node.FS.Async (stat)
-import Node.FS.Stats (Stats(..))
+import Effect.Class.Console (log)
+import Node.FS.Async as Async
+import Node.FS.Stats (Stats(..), isFile)
+import Node.FS.Sync as Sync
 
 main :: Effect Unit
-main = do
-  stat "." case _ of
-    Right (Stats stats) -> do
-      logShow $ runFn0 stats.isDirectory
-    _ -> mempty
+main =
+  do
+    stats <- Sync.stat "."
+    if isFile stats then
+      log "File."
+    else
+      log "Not a file."
+
+    Async.stat "." case _ of
+      Right (Stats stats') -> do
+        if runFn0 stats'.isDirectory then
+          log "Directory."
+        else
+          log "Not a directory."
+
+      _ -> mempty
 

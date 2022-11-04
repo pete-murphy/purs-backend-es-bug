@@ -4,9 +4,17 @@
 npm install
 ```
 
-then `npm run example` succeeds, but `npm run example:es` fails with
+then `npm run example` succeeds with
 
 ```
+Not a file.
+Directory.
+```
+
+but `npm run example:es` fails with
+
+```
+Not a file.
 node:internal/fs/utils:416
   return this._checkModeProperty(S_IFDIR);
               ^

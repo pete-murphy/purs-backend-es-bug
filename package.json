@@ -2,8 +2,10 @@
   "name": "purs-backend-es-bug",
   "type": "module",
   "scripts": {
+    "postinstall": "spago install",
     "example": "spago build && node index.js",
-    "example:es": "spago build --config=spago-es.dhall && node index-es.js"
+    "example:es": "spago build --config=spago-es.dhall && node index-es.js",
+    "clean": "rm -rf ./.spago ./output ./output-es"
   },
   "author": "",
   "license": "ISC",
