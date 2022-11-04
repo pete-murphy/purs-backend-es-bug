@@ -1,0 +1,13 @@
+{
+  "name": "purs-backend-es-bug",
+  "type": "module",
+  "scripts": {
+    "example": "spago build && node index.js",
+    "example:es": "spago build --config=spago-es.dhall && node index-es.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "purs-backend-es": "^1.2.0"
+  }
+}
